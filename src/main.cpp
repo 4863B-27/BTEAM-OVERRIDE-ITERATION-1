@@ -2,8 +2,8 @@
 
 /////
 
-/*void set_clawlift_position(int target_degrees,int speed);//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
-void set_lift_position(int target_degrees,int speed);*/
+//void set_clawlift_position(int target_degrees,int speed);//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
+//void set_lift_position(int target_degrees,int speed);*/
 // For installation, upgrading, documentations, and tutorials, check out our website!
 // https://ez-robotics.github.io/EZ-Template/
 /////
@@ -20,13 +20,13 @@ ez::Drive chassis(
     343);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 
-   pros::MotorGroup lift({-13, 17});
-
+   /*pros::MotorGroup lift({-13, 17});
+   THESE ARE GREYED OUT BECAUSE I SET THEM UP IN SUBSYSTEMS.HPP THAT HOW IT WORKS ALSO WHAT MARSHALL WAS TALKING ABOUT
    pros::Motor clawlift(14);
    pros::Motor clawturn(15);
    ez::Piston matchload('C', false);
    ez::Piston doi('A', false);
-   ez::Piston doinker('B', false);
+   ez::Piston doinker('B', false);*/
    /*pros::adi::DigitalOut doi('A'); 
    pros::adi::DigitalOut doinker('B'); */
    
@@ -51,7 +51,7 @@ void initialize() {
 
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
-  lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   clawlift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   clawturn.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
@@ -142,14 +142,14 @@ void autonomous() {
     first_auton();
   }else if (ez::as::get_auton_index() == 2){
     //call other rauton different "void" dont add without lucas diaz
-  }//prolly wont work just made up*/ //AVERY: THIS IS OUTDATED CODE MADE W OLDER VER OF EZ TEMPLATE, OBSOLETE
+  }//prolly wont work just made up*/ //obsolete
 
   chassis.pid_targets_reset();                // Resets PID targets to 0
   chassis.drive_imu_reset();                  // Reset gyro position to 0
   chassis.drive_sensor_reset();               // Reset drive sensors to 0
   chassis.odom_xyt_set(0_in, 0_in, 0_deg);    // Set the current position, you can start at a specific position with this
   chassis.drive_brake_set(MOTOR_BRAKE_HOLD);  // Set motors to hold.  This helps autonomous consistency
-
+  my_custom_auton();
   /*
   Odometry and Pure Pursuit are not magic
 
@@ -163,7 +163,7 @@ void autonomous() {
   to be consistent
   */
 
-  ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
+  //ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
 }
 
 /**
@@ -291,10 +291,14 @@ void opcontrol() {
       lift.move_velocity(0);
     }*/
 
-    int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP) - 
-                 controller2.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) * 127  ;
-                 
+  int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP) - 
+  controller2.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) * 127;
+
+if (power != 0) {
     lift.move(power);
+} else {
+    lift.brake(); // Actively locks both green motors using HOLD mode
+}
 
     if(controller2.get_digital(DIGITAL_R1)){
       clawturn.move(25);

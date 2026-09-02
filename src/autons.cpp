@@ -380,16 +380,16 @@ void my_custom_auton() {//for some reason id isn't calling back prolly internet 
 
   lift.move_relative(-45, 100);
   lift.move(0);
-  lift.move_relative(45);
+  lift.move_relative(45, 100);
   lift.move(0);
   
   lift.move_relative(-45, 100);
   lift.move(0);
   
-  lift.move_relative(45);
- lift.move(0);
+  lift.move_relative(45, 100);
+  lift.move(0);
   
-  clawlift.move_relative(-1);
+  clawlift.move_relative(-12, 100);
  lift.move(0);
   
   /*set_lift_position(45,100);//starting point is full down if lift goes down change line negative so on and so forth may no be at exact hight (sensitive material)
@@ -398,7 +398,7 @@ void my_custom_auton() {//for some reason id isn't calling back prolly internet 
   set_lift_position(-45,100);
   set_clawlift_position(-45,100);*/
 
-  chassis.pid_drive_set(-24_in, 110);//measured 
+  /*chassis.pid_drive_set(-24_in, 110);//measured 
   chassis.pid_wait();
 
   chassis.pid_turn_set(-90,90);//if turns wrong way change to positive
@@ -426,6 +426,6 @@ void my_custom_auton() {//for some reason id isn't calling back prolly internet 
   chassis.pid_drive_set(-4_in, 110);//not measured dont change without lucas diaz 
   chassis.pid_wait();
   lift.move(-45);
-  //set_lift_position(-45,100);
+  //set_lift_position(-45,100);*/
   
 }
