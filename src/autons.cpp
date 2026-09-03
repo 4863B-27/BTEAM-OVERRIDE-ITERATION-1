@@ -377,7 +377,6 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 void my_custom_auton() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
-
   lift.move_relative(-45, 100);
   lift.move(0);
   lift.move_relative(45, 100);
@@ -396,9 +395,9 @@ void my_custom_auton() {//for some reason id isn't calling back prolly internet 
   set_lift_position(-45,100);
   set_lift_position(45,100);
   set_lift_position(-45,100);
-  set_clawlift_position(-45,100);*/
+  set_clawlift_position(-45,100);
 
-  /*chassis.pid_drive_set(-24_in, 110);//measured 
+  chassis.pid_drive_set(-24_in, 110);//measured 
   chassis.pid_wait();
 
   chassis.pid_turn_set(-90,90);//if turns wrong way change to positive

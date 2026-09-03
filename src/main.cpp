@@ -15,7 +15,7 @@ ez::Drive chassis(
     {-20, -10},     // Left Chassis Ports (negative port will reverse it!)
     {3, 4},  // Right Chassis Ports (negative port will reverse it!)
 
-    7,      // IMU Port
+    21,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     343);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
@@ -79,8 +79,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+    {"flip toggle twice then score pre load", my_custom_auton},
+     //{"my_custom_auton\n\nOVERRIDE1", my_custom_auton}, 
       {"Drive\n\nDrive forward and come back", drive_example},
-      {"my_custom_auton\n\nOVERRIDE1", my_custom_auton}, 
       {"Turn\n\nTurn 3 times.", turn_example},
       /*{"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
@@ -149,7 +150,6 @@ void autonomous() {
   chassis.drive_sensor_reset();               // Reset drive sensors to 0
   chassis.odom_xyt_set(0_in, 0_in, 0_deg);    // Set the current position, you can start at a specific position with this
   chassis.drive_brake_set(MOTOR_BRAKE_HOLD);  // Set motors to hold.  This helps autonomous consistency
-  my_custom_auton();
   /*
   Odometry and Pure Pursuit are not magic
 
@@ -163,7 +163,7 @@ void autonomous() {
   to be consistent
   */
 
-  //ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
+  ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
 }
 
 /**
@@ -291,7 +291,18 @@ void opcontrol() {
       lift.move_velocity(0);
     }*/
 
-  int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP) - 
+    // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
+    // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
+    // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
+    // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
+
+
+
+    // . . .
+    // Put more user control code here!
+    // . . .
+
+    int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP) - 
   controller2.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) * 127;
 
 if (power != 0) {
@@ -331,63 +342,6 @@ if (power != 0) {
 if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
   matchload.set(!matchload.get());
 } 
-     /* matchload.buttons(controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
-        pros::delay(10);
-    }
-
-doi.buttons(controller2.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
-        pros::delay(10);
-    }
-
-doinker.buttons(controller2.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT)){
-        pros::delay(10);
-    }*/
-
-    /*int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_R1) - 
-                 controller2.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) * 127;
-                 
-    clawlift.move(power);*/
-
-/*/ if (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
-  clawlift.move_voltage(127); // Max forward voltage
-  }
-        // Else if R2 is pressed, spin the intake backward
-  else if (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-    clawlift.move_voltage(-127); // Max backward voltage
-    }
-        // If neither button is pressed, stop the motor completely
-  else {
-    clawlift.move_voltage(0); 
-  }
-  int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_A) - 
-                 controller2.get_digital(pros::E_CONTROLLER_DIGITAL_B)) * 127;
-                 
-    clawturn.move(power);
-
-     if (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
-            clawturn.move_voltage(127); // Max forward voltage
-        }
-        // Else if R2 is pressed, spin the intake backward
-        else if (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_Y))  {
-            clawturn.move_voltage(-127); // Max backward voltage
-        }
-        // If neither button is pressed, stop the motor completely
-        else {
-            clawturn.move_voltage(0); 
-        }
-  */
-
-
-    // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
-    // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
-    // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
-    // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
-
-
-
-    // . . .
-    // Put more user control code here!
-    // . . .
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
