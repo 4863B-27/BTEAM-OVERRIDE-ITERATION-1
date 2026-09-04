@@ -377,7 +377,7 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 
-void Left_Red() {
+void Right_Blue() {
 
   lift.move(95);
   pros::delay(400);
@@ -416,10 +416,10 @@ void Left_Red() {
 // positive turns right negative turns left 
 // positive lifts the claw up negative makes it go down
 
-void Right_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
+void Left_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
  
   //chassis.pid_wait();
-  lift.move(95);
+  /*lift.move(95);
   pros::delay(400);
 
   lift.move(-95);
@@ -437,8 +437,8 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   chassis.pid_turn_set(-115, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(9_in, 90, true);
-
+  chassis.pid_drive_set(12_in, 90, true);*/
+  
   lift.move(-95);
   pros::delay(300);
 

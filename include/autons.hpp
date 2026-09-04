@@ -1,9 +1,8 @@
 #pragma once
 
 void default_constants();
-
-void Right_Blue(); //LUCAS AUTON
-void Left_Red();
+void Left_Blue(); //LUCAS AUTON
+void Right_Blue();
 void drive_example();
 void turn_example();
 void drive_and_turn();
