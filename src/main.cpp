@@ -81,8 +81,10 @@ void initialize() {
   ez::as::auton_selector.autons_add({
       {"LeftB\n\nleft auton", Left_Blue},
       {"RightB\n\nright auton", Right_Blue}, 
+      {"Nothing\n\nDo nothing", nothing},
       {"Drive\n\nDrive forward and come back", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
+      
       /*{"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
       {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
