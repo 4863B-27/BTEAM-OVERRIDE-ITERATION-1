@@ -376,26 +376,84 @@ void measure_offsets() {
 // . . .
 // Make your own autonomous functions here!
 // . . .
-void my_custom_auton() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
+
+void Left_Red() {
+
+  lift.move(95);
+  pros::delay(400);
+
+  lift.move(-95);
+  pros::delay(300);
+  
+  lift.move(95);
+  pros::delay(400);
+  
+  lift.move(-95);
+  pros::delay(500);
+
+  chassis.pid_drive_set(-5.5_in, 90, true);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_set(130, 90);
+  chassis.pid_wait();
+
+  clawturn.move(50);
+  pros::delay(120);
+  clawturn.move(0);
+
+  clawlift.move(-50);
+  pros::delay(200);
+  clawlift.move(0);
+
+  lift.move(-95);
+  pros::delay(100);
+
+  chassis.pid_drive_set(4_in, 90, true);
+  chassis.pid_wait();
+
+}
+
+// positive turns right negative turns left 
+// positive lifts the claw up negative makes it go down
+
+void Right_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
  
   //chassis.pid_wait();
-  lift.move_relative(-45, 100);
-  pros::delay(700);
-  lift.move(0);
+  lift.move(95);
+  pros::delay(400);
 
-  lift.move_relative(45, 100);
-  pros::delay(700);
-  lift.move(0);
+  lift.move(-95);
+  pros::delay(300);
   
-  lift.move_relative(-45, 100);
-  pros::delay(700);
-  lift.move(0);
+  lift.move(95);
+  pros::delay(400);
   
-  lift.move_relative(45, 100);
-  pros::delay(700);
-  lift.move(0);
+  lift.move(-95);
+  pros::delay(500);
   
-  clawlift.move_relative(-12, 100);
+  chassis.pid_drive_set(-5.5_in, 90, true);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_set(-115, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(9_in, 90, true);
+
+  lift.move(-95);
+  pros::delay(300);
+
+  /*clawturn.move(60);
+  pros::delay(200);
+  clawturn.move(0);
+
+  clawlift.move(-60);
+  pros::delay(350);
+  clawlift.move(0);*/
+  
+  //matchload.set(!matchload.get()); uncomma once claw rotation is tested
+
+  
+  /*clawlift.move_relative(-12, 100);
   pros::delay(700);
  lift.move(0);
 
@@ -403,7 +461,7 @@ void my_custom_auton() {//for some reason id isn't calling back prolly internet 
   chassis.pid_wait();
   
   
-  /*set_lift_position(45,100);//starting point is full down if lift goes down change line negative so on and so forth may no be at exact hight (sensitive material)
+  set_lift_position(45,100);//starting point is full down if lift goes down change line negative so on and so forth may no be at exact hight (sensitive material)
   set_lift_position(-45,100);
   set_lift_position(45,100);
   set_lift_position(-45,100);
@@ -438,5 +496,4 @@ void my_custom_auton() {//for some reason id isn't calling back prolly internet 
   chassis.pid_wait();
   lift.move(-45);
   //set_lift_position(-45,100);*/
-  
 }

@@ -2,7 +2,8 @@
 
 void default_constants();
 
-void my_custom_auton(); //LUCAS AUTON
+void Right_Blue(); //LUCAS AUTON
+void Left_Red();
 void drive_example();
 void turn_example();
 void drive_and_turn();

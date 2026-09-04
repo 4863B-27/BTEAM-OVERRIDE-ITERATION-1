@@ -17,7 +17,7 @@ ez::Drive chassis(
 
     21,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
-    343);   // Wheel RPM = cartridge * (motor gear / wheel gear)
+    360);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 
    /*pros::MotorGroup lift({-13, 17});
@@ -79,8 +79,8 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    {"RightBlue\n\nOVERRIDE1", my_custom_auton},
-     //{"my_custom_auton\n\nOVERRIDE1", my_custom_auton}, 
+      {"RightB\n\nOVERRIDE1", Right_Blue},
+      {"LeftR\n\nleft auton", Left_Red}, 
       {"Drive\n\nDrive forward and come back", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
       /*{"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
