@@ -1,7 +1,7 @@
 #pragma once
 
-void Left_Blue(); //LUCAS AUTON
-void Right_Blue();
+void Right_Blue(); //LUCAS AUTON
+void Left_Blue();
 void Do_Nothing();
 void default_constants();
 void drive_example();

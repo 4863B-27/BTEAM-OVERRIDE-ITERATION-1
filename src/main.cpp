@@ -17,8 +17,7 @@ ez::Drive chassis(
 
     21,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
-    360);   // Wheel RPM = cartridge * (motor gear / wheel gear)
-
+    360);   // Wheel RPM = cartridge * (motor gear / wheel gear) 
 
    /*pros::MotorGroup lift({-13, 17});
    THESE ARE GREYED OUT BECAUSE I SET THEM UP IN SUBSYSTEMS.HPP THAT HOW IT WORKS ALSO WHAT MARSHALL WAS TALKING ABOUT
@@ -81,7 +80,7 @@ void initialize() {
   ez::as::auton_selector.autons_add({
       {"LeftB\n\nleft auton", Left_Blue},
       {"RightB\n\nright auton", Right_Blue}, 
-      {"Nothing\n\nDo nothing", nothing},
+      {"Do Nothing\n\nDo nothing", Do_Nothing},
       {"Drive\n\nDrive forward and come back", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
       

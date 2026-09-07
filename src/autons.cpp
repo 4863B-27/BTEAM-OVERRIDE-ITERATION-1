@@ -12,7 +12,8 @@ const int SWING_SPEED = 110;
 
 ///
 // Constants
-///
+/// 
+
 void default_constants() {
   // P, I, D, and Start I
   chassis.pid_drive_constants_set(20.0, 0.0, 100.0);         // Fwd/rev constants, used for odom and non odom motions
@@ -377,7 +378,7 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 
-void Right_Blue() {
+void Left_Blue() {
 
   lift.move(95);
   pros::delay(400);
@@ -394,21 +395,21 @@ void Right_Blue() {
   chassis.pid_drive_set(-5.5_in, 90, true);
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_turn_set(130, 90);
+  chassis.pid_turn_set(-115, 90); 
   chassis.pid_wait();
+  
+  lift.move(90);
+  pros::delay(10);
 
-  clawturn.move(50);
-  pros::delay(120);
+  clawturn.move(20);
+  pros::delay(50);
   clawturn.move(0);
 
-  clawlift.move(-50);
+  clawlift.move(-20);
   pros::delay(200);
   clawlift.move(0);
 
-  lift.move(-95);
-  pros::delay(100);
-
-  chassis.pid_drive_set(4_in, 90, true);
+  chassis.pid_drive_set(3_in, 110, true);
   chassis.pid_wait();
 
 }
@@ -421,7 +422,7 @@ void Do_Nothing() {
 // positive turns right negative turns left 
 // positive lifts the claw up negative makes it go down
 
-void Left_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
+void Right_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
   
   lift.move(95);
   pros::delay(400);
@@ -434,39 +435,59 @@ void Left_Blue() {//for some reason id isn't calling back prolly internet i know
   
   lift.move(-95);
   pros::delay(500);
-  
-  chassis.pid_drive_set(-5.5_in, 90, true);
+
+  chassis.pid_drive_set(-7.8_in, 90, true);
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_turn_set(-115, 90);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(12_in, 90, true);
+  chassis.pid_turn_set(68, 90); 
   chassis.pid_wait();
   
-  lift.move(-95);
-  pros::delay(300);
+  lift.move(100);
+  pros::delay(100);
+  lift.move(0);
 
   clawturn.move(60);
-  pros::delay(200);
+  pros::delay(100);
   clawturn.move(0);
 
-  clawlift.move(-60);
-  pros::delay(350);
+  clawlift.move_velocity(-150); //adjust once replace wiring
+  pros::delay(20);
   clawlift.move(0);
-  
-  //matchload.set(!matchload.get()); uncomma once claw rotation is tested
 
-  
-  /*clawlift.move_relative(-12, 100);
-  pros::delay(700);
- lift.move(0);
-
- chassis.pid_drive_set(-24_in, 110);//measured
+  chassis.pid_drive_set(17_in, 90, true);
   chassis.pid_wait();
   
+  matchload.set(!matchload.get());
+  pros::delay(100); 
+
+  chassis.pid_drive_set(-6_in, 90, true);
+  chassis.pid_wait_quick_chain();
+
+  matchload.set(!matchload.get());
+  pros::delay(30);
+
+  chassis.pid_turn_relative_set(-40, 90);
+  chassis.pid_wait();
   
-  set_lift_position(45,100);//starting point is full down if lift goes down change line negative so on and so forth may no be at exact hight (sensitive material)
+  chassis.pid_drive_set(4_in, 90, true);
+  chassis.pid_wait_quick_chain();
+ // going for yellow pin standing closet to the match load
+ // right or left side for auton is shown by facing the opposit color diagnal from the match load and right of you is right side etc
+  /*chassis.pid_turn_set(30, 110, true);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(16_in, 110, true);
+  chassis.pid_wait();
+  
+  /*chassis.pid_drive_set(6_in, 110, true);
+  chassis.pid_wait_until(4_in);
+  chassis.pid_speed_max_set(70);  // After driving 6 inches at 30 speed, the robot will go the remaining distance at DRIVE_SPEED
+  chassis.pid_wait();
+
+  matchload.set(!matchload.get());
+  
+  
+  /*set_lift_position(45,100);//starting point is full down if lift goes down change line negative so on and so forth may no be at exact hight (sensitive material)
   set_lift_position(-45,100);
   set_lift_position(45,100);
   set_lift_position(-45,100);
