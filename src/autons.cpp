@@ -415,8 +415,11 @@ void Left_Blue() {
 }
 
 void Do_Nothing() {
-  chassis.pid_drive_set(2_in, 90, true);
-  chassis.pid_wait();
+  //chassis.pid_drive_set(2_in, 90, true);
+  //chassis.pid_wait();
+  clawturn.move(-40);
+  pros::delay(140);
+  clawturn.move(0);
 }
 
 // positive turns right negative turns left 
@@ -436,49 +439,79 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   lift.move(-95);
   pros::delay(500);
 
-  chassis.pid_drive_set(-7.8_in, 90, true);
+  chassis.pid_drive_set(-7.8_in, 75, true);
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_turn_set(68, 90); 
+  chassis.pid_turn_set(68, 75); 
   chassis.pid_wait();
   
   lift.move(100);
   pros::delay(100);
   lift.move(0);
 
-  clawturn.move(60);
-  pros::delay(100);
+  clawturn.move(-40);
+  pros::delay(140);
   clawturn.move(0);
 
-  clawlift.move_velocity(-150); //adjust once replace wiring
+  clawlift.move(-150); //adjust once replace wiring
   pros::delay(20);
   clawlift.move(0);
 
-  chassis.pid_drive_set(17_in, 90, true);
+  chassis.pid_drive_set(17_in, 80, true);
   chassis.pid_wait();
   
   matchload.set(!matchload.get());
-  pros::delay(100); 
+  pros::delay(200); 
 
-  chassis.pid_drive_set(-6_in, 90, true);
+  chassis.pid_drive_set(-12_in, 80, true);
   chassis.pid_wait_quick_chain();
 
-  matchload.set(!matchload.get());
-  pros::delay(30);
-
-  chassis.pid_turn_relative_set(-40, 90);
+  chassis.pid_turn_relative_set(-50, 80);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(4_in, 90, true);
-  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(12.5_in, 90, true);
+  chassis.pid_wait();
+
+  pros::delay(100);
+
  // going for yellow pin standing closet to the match load
  // right or left side for auton is shown by facing the opposit color diagnal from the match load and right of you is right side etc
-  /*chassis.pid_turn_set(30, 110, true);
+  chassis.pid_turn_set(64, 50); //turn to drive straight between goal and wall
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(16_in, 110, true);
+  pros::delay(100);
+
+  chassis.pid_drive_set(20_in, 70, true);
+  chassis.pid_wait_quick_chain();
+
+ pros::delay(200);
+
+  chassis.pid_turn_relative_set(33, 70); // turn to face standing pin
   chassis.pid_wait();
+
+  pros::delay(100);
   
+  chassis.pid_drive_set(13_in, 70, true);
+  chassis.pid_wait();
+
+  pros::delay(100);
+
+  matchload.set(!matchload.get());
+  pros::delay(100);
+
+  clawlift.move(-150); //adjust once replace wiring
+  pros::delay(20);
+  clawlift.move(0);
+
+  chassis.pid_drive_set(2_in, 70, true);
+  chassis.pid_wait();
+
+  pros::delay(100);
+
+  chassis.pid_turn_relative_set(130, 70); //turn to score
+  chassis.pid_wait_quick_chain();
+  
+
   /*chassis.pid_drive_set(6_in, 110, true);
   chassis.pid_wait_until(4_in);
   chassis.pid_speed_max_set(70);  // After driving 6 inches at 30 speed, the robot will go the remaining distance at DRIVE_SPEED
