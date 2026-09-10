@@ -476,115 +476,145 @@ void Left_Blue() {
 
 }
 
-void Do_Nothing() {
+void Do_Nothing() { //REMEMBER TO TAKE ALL TEST CODE OUT AND UNCOMMA CHASSIS.PID_DRIVE SET FOR AWP IF ALLIANCE SAYS SO
   //chassis.pid_drive_set(2_in, 90, true);
   //chassis.pid_wait();
-  clawturn.move(-40);
-  pros::delay(140);
-  clawturn.move(0);
+  lift.move(60);
+  pros::delay(300);
+  lift.move(0);
+  
+  pros::delay(200);
+
+  clawlift.move(-127); // makes claw go down parallel to the ground
+  pros::delay(200);
+  clawlift.move(0);
 }
 
 // positive turns right negative turns left 
 // positive lifts the claw up negative makes it go down
 
 void Right_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
-  
-  lift.move(95);
-  pros::delay(400);
+  lift.move(127);
+  pros::delay(600);
 
-  lift.move(-95);
-  pros::delay(300);
+ /* lift.move(-100);
+  pros::delay(580);
   
-  lift.move(95);
-  pros::delay(400);
+  lift.move(127);
+  pros::delay(600);*/
   
-  lift.move(-95);
-  pros::delay(500);
+  lift.move(-120);
+  pros::delay(600);
 
-  chassis.pid_drive_set(-7.8_in, 75, true);
+  chassis.pid_drive_set(-7.6_in, 50, true);//-7.8//-8.1
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_turn_set(68, 75); 
+  chassis.pid_turn_set(90, 50); 
   chassis.pid_wait();
   
-  lift.move(100);
-  pros::delay(100);
+  lift.move(150);//110
+  pros::delay(180);//200//170
   lift.move(0);
 
-  clawturn.move(-40);
-  pros::delay(140);
+  pros::delay(100);
+
+  clawturn.move(-64);
+  pros::delay(110);//110//100//90
   clawturn.move(0);
 
-  clawlift.move(60); //adjust once replace wiring
-  pros::delay(100);
+  clawlift.move(-127); // makes claw go down parallel to the ground
+  pros::delay(99);//88
   clawlift.move(0);
 
-  chassis.pid_drive_set(16_in, 80, true);
+  chassis.pid_drive_set(11.5_in, 50, true); //12.5 //inch ////8
   chassis.pid_wait();
+
+  lift.move(-110);
+  pros::delay(200);//200
+  lift.move(0);
+
+
   
   matchload.set(!matchload.get());
   pros::delay(200); 
 
   pros::delay(100);
 
-  chassis.pid_drive_set(-12_in, 80, true);
+  chassis.pid_drive_set(-12_in, 50, true); //12 //10in
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_turn_relative_set(-50, 80);
-  chassis.pid_wait();
+  chassis.pid_turn_relative_set(-65, 50); //55//60
+  chassis.pid_wait(); 
   
-  chassis.pid_drive_set(12.5_in, 90, true);
+  chassis.pid_drive_set(5.5_in, 80, true);//50//10in//5in
   chassis.pid_wait();
 
   pros::delay(100);
+//not here before bottom two commands
+  chassis.pid_turn_relative_set(28, 50); //33 degrees
+  chassis.pid_wait(); 
+
+  chassis.pid_drive_set(9_in, 80, true);//50//10in
+  chassis.pid_wait();
+
+  pros::delay(100);
+
 
  // going for yellow pin standing closet to the match load
  // right or left side for auton is shown by facing the opposit color diagnal from the match load and right of you is right side etc
-  chassis.pid_turn_set(64, 50); //turn to drive straight between goal and wall
+  chassis.pid_turn_relative_set(38, 50); //turn to drive straight between goal and wall//42 degrees
   chassis.pid_wait_quick_chain();
 
   pros::delay(100);
 
-  chassis.pid_drive_set(20_in, 70, true);
+  chassis.pid_drive_set(20_in, 100, true);//70
   chassis.pid_wait_quick_chain();
 
- pros::delay(200);
+  pros::delay(200);
 
-  chassis.pid_turn_relative_set(33, 70); // turn to face standing pin
+  chassis.pid_turn_relative_set(27, 70); // turn to face standing pin//35degrees//28deg
   chassis.pid_wait();
 
   pros::delay(100);
   
-  chassis.pid_drive_set(13_in, 70, true);
+  /*chassis.pid_drive_set(14_in, 70, true);
   chassis.pid_wait();
 
-  pros::delay(100);
+  pros::delay(100);*/
+
+  chassis.pid_drive_set(12_in, 60, true);//14in//70sp
+  chassis.pid_wait_until(11_in);
+  chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
+  chassis.pid_wait();
 
   matchload.set(!matchload.get());
   pros::delay(100);
 
-  clawlift.move(50); //adjust once replace wiring
-  pros::delay(70);
+  clawlift.move(55); 
+  pros::delay(80);
   clawlift.move(0);
 
-  lift.move(60);
   pros::delay(200);
-  lift.move(0);
-  
-  /*chassis.pid_drive_set(2_in, 70, true);
-  chassis.pid_wait();
 
-  pros::delay(100);
+  lift.move(270);
+  pros::delay(600);
+  lift.move(0);
+  //clawlift.move(0);
+  
+  //chassis.pid_drive_set(2_in, 70, true);
+  //chassis.pid_wait();
+
+  //pros::delay(100);
 
   chassis.pid_turn_relative_set(130, 70); //turn to score
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(2_in, 70, true); //drive forward a bit to score
+  chassis.pid_drive_set(5_in, 70, true); //drive forward a bit to score
   chassis.pid_wait();
   
-  clawlift.move(-40); //adjust once replace wiring 
-  pros::delay(50);
-  clawlift.move(0);
+  //clawlift.move(-40); //adjust once replace wiring 
+  //pros::delay(50);
+  //clawlift.move(0);
 
   matchload.set(!matchload.get());
   pros::delay(100);
