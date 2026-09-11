@@ -403,7 +403,7 @@ void Left_Blue() {
   lift.move(0);
 
   clawturn.move(-40);
-  pros::delay(140);
+  pros::delay(1255.);//140
   clawturn.move(0);
 
   clawlift.move(40); //adjust once replace wiring
@@ -503,8 +503,8 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   lift.move(127);
   pros::delay(600);*/
   
-  lift.move(-120);
-  pros::delay(600);
+  lift.move(-10); //ratio 2/5 move fist then delay
+  pros::delay(850);
 
   chassis.pid_drive_set(-7.6_in, 50, true);//-7.8//-8.1
   chassis.pid_wait_quick_chain();
@@ -519,18 +519,18 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   pros::delay(100);
 
   clawturn.move(-64);
-  pros::delay(110);//110//100//90
+  pros::delay(105);//110//100//90
   clawturn.move(0);
 
   clawlift.move(-127); // makes claw go down parallel to the ground
   pros::delay(99);//88
   clawlift.move(0);
 
-  chassis.pid_drive_set(11.5_in, 50, true); //12.5 //inch ////8
+  chassis.pid_drive_set(12_in, 50, true); //12.5 //inch ////8
   chassis.pid_wait();
 
-  lift.move(-110);
-  pros::delay(200);//200
+  lift.move(-100);//110
+  pros::delay(255);//200//230
   lift.move(0);
 
 
@@ -582,7 +582,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
 
   pros::delay(100);*/
 
-  chassis.pid_drive_set(12_in, 60, true);//14in//70sp
+  chassis.pid_drive_set(10.1_in, 40, true);//12in//70sp//60sp
   chassis.pid_wait_until(11_in);
   chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
   chassis.pid_wait();
@@ -590,8 +590,8 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   matchload.set(!matchload.get());
   pros::delay(100);
 
-  clawlift.move(55); 
-  pros::delay(80);
+  clawlift.move(70); 
+  pros::delay(110);
   clawlift.move(0);
 
   pros::delay(200);
@@ -609,15 +609,22 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   chassis.pid_turn_relative_set(130, 70); //turn to score
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(5_in, 70, true); //drive forward a bit to score
+  chassis.pid_drive_set(5.4_in, 70, true); //drive forward a bit to score//5//4.6
   chassis.pid_wait();
   
+  lift.move(-60);
+  pros::delay(600);
+  lift.move(0);
   //clawlift.move(-40); //adjust once replace wiring 
   //pros::delay(50);
   //clawlift.move(0);
 
   matchload.set(!matchload.get());
   pros::delay(100);
+
+  chassis.pid_drive_set(-5.4_in, 70, true); //drive forward a bit to score//5//4.6
+  chassis.pid_wait();
+  
 
   /*chassis.pid_drive_set(6_in, 110, true);
   chassis.pid_wait_until(4_in);
