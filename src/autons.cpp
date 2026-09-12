@@ -543,7 +543,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(870);//850
 
-  chassis.pid_drive_set(-7.6_in, 50, true);//-7.8//-8.1
+  chassis.pid_drive_set(-8_in, 50, true);//-7.8//-8.1//-7.4
   chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(90, 50); 
@@ -622,7 +622,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   pros::delay(60);//45
   lift.move(0);
 
-  chassis.pid_drive_set(10.1_in, 40, true);//12in//70sp//60sp
+  chassis.pid_drive_set(10.8_in, 40, true);//12in//70sp//60sp//10.1in
   chassis.pid_wait_until(11_in);
   chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
   chassis.pid_wait();
@@ -646,10 +646,10 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
 
   //pros::delay(100);
 
-  chassis.pid_turn_relative_set(135, 70); //turn to score//130
+  chassis.pid_turn_relative_set(130, 70); //turn to score//130//135
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(5.4_in, 70, true); //drive forward a bit to score//5//4.6
+  chassis.pid_drive_set(5_in, 70, true); //drive forward a bit to score//5//4.6//5.4
   chassis.pid_wait();
   
   lift.move(-40);
