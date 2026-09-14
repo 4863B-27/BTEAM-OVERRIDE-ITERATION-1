@@ -392,7 +392,7 @@ lift.move(127);
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(850);
 
-  chassis.pid_drive_set(-10_in, 50, true); //7.6, //7.8, //8.5, //9 
+  chassis.pid_drive_set(-10.5_in, 50, true); //7.6, //7.8, //8.5, //9 //10
   chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(-90, 50); 
@@ -412,7 +412,7 @@ lift.move(127);
   pros::delay(99);//88
   clawlift.move(0);
 
-  chassis.pid_drive_set(14_in, 50, true); //12.5 //inch ////8//14
+  chassis.pid_drive_set(12_in, 50, true); //12.5 //inch ////8//14//13
   chassis.pid_wait();
 
   lift.move(-60);//110//100//80
@@ -447,7 +447,7 @@ lift.move(127);
 
 
  // going for yellow pin standing closet to the match load
- // right or left side for auton is shown by facing the opposit color diagnal from the match load and right of you is right side etc
+ // right or left side for auton is shown by facing the opposite color diagnal from the match load and right of you is right side etc
   chassis.pid_turn_relative_set(-38, 50); //turn to drive straight between goal and wall//42 degrees
   chassis.pid_wait_quick_chain();
 
@@ -468,7 +468,7 @@ lift.move(127);
 
   pros::delay(100);*/
 
-  chassis.pid_drive_set(8_in, 40, true);//12in//70sp//60sp//10.1//9.2//9//8.5
+  chassis.pid_drive_set(5.7_in, 40, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5
   chassis.pid_wait_until(11_in);
   chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
   chassis.pid_wait();
@@ -492,10 +492,10 @@ lift.move(127);
 
   //pros::delay(100);
 
-  chassis.pid_turn_relative_set(-138, 70); //turn to score//-130//-125//-132
+  chassis.pid_turn_relative_set(-135, 70); //turn to score//-130//-125//-132//-138//130
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(5_in, 70, true); //drive forward a bit to score//5//4.6 //5.4
+  chassis.pid_drive_set(3_in, 70, true); //drive forward a bit to score//5//4.6 //5.4//5
   chassis.pid_wait();
   
   lift.move(-20);//-60//-40
@@ -516,15 +516,17 @@ lift.move(127);
 void Do_Nothing() { //REMEMBER TO TAKE ALL TEST CODE OUT AND UNCOMMA CHASSIS.PID_DRIVE SET FOR AWP IF ALLIANCE SAYS SO
   //chassis.pid_drive_set(2_in, 90, true);
   //chassis.pid_wait();
-  lift.move(60);
-  pros::delay(300);
-  lift.move(0);
-  
-  pros::delay(200);
+ lift.move(127);
+  pros::delay(620);//600
 
-  clawlift.move(-127); // makes claw go down parallel to the ground
-  pros::delay(200);
-  clawlift.move(0);
+ /* lift.move(-100);
+  pros::delay(580);
+  
+  lift.move(127);
+  pros::delay(600);*/
+  
+  lift.move(-10); //ratio 2/5 move fist then delay
+  pros::delay(870);//850
 }
 
 // positive turns right negative turns left 
@@ -622,7 +624,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   pros::delay(60);//45
   lift.move(0);
 
-  chassis.pid_drive_set(10.8_in, 40, true);//12in//70sp//60sp//10.1in
+  chassis.pid_drive_set(10_in, 35 , true);//12in//70sp//60sp//10.1in//10.8//10.3//40
   chassis.pid_wait_until(11_in);
   chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
   chassis.pid_wait();
