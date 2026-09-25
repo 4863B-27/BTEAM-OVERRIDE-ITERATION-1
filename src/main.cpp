@@ -53,7 +53,8 @@ void initialize() {
   lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   clawlift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   clawturn.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-
+  leftswerve.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
+  
 
   // Look at your horizontal tracking wheel and decide if it's in front of the midline of your robot or behind it
   //  - change `back` to `front` if the tracking wheel is in front of the midline
@@ -78,11 +79,13 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+      {"skills\n\nskills" ,skills},
       {"LeftB\n\nleft auton", Left_Blue},
       {"RightB\n\nright auton", Right_Blue}, 
       {"Do Nothing\n\nDo nothing", Do_Nothing},
       {"Drive\n\nDrive forward and come back", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
+      {"skills\n\nskills" ,skills},
       
       /*{"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
