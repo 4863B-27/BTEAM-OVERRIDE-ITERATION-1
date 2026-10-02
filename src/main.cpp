@@ -50,10 +50,10 @@ void initialize() {
 
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
+ 
   lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   clawlift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   clawturn.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  leftswerve.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   
 
   // Look at your horizontal tracking wheel and decide if it's in front of the midline of your robot or behind it
@@ -306,15 +306,26 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
 
-    int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP) - 
+    /*int power = (controller2.get_digital(pros::E_CONTROLLER_DIGITAL_UP) - 
   controller2.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) * 127;
-
+  
+  
 if (power != 0) {
     lift.move(power);
 } else {
     lift.brake(); // Actively locks both green motors using HOLD mode
-}
+}*/
+ if(controller2.get_digital(DIGITAL_UP)){
+      lift.move(127);
+    }
+    else if(controller2.get_digital(DIGITAL_DOWN)){
+      lift.move(-80);
+    }
+    else{
+      lift.move_velocity(0);
+    }
 
+   
     if(controller2.get_digital(DIGITAL_R1)){
       clawturn.move(25);
     }

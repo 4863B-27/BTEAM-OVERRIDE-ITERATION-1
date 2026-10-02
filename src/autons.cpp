@@ -688,7 +688,7 @@ lift.move(127);
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(850);
 
-  chassis.pid_drive_set(-6.5_in, 127, true); //7.6, //7.8, //8.5, //9 //10 //50//10.5//70//-10//50sp//-10.5//8//6
+  chassis.pid_drive_set(-8_in, 127, true); //7.6, //7.8, //8.5, //9 //10 //50//10.5//70//-10//50sp//-10.5//8//6//=6.5//-7.3//-7.6//-8//7.6
   chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(-90, 127); //50sp
@@ -700,26 +700,26 @@ lift.move(127);
 
   pros::delay(100);
 
-  clawturn.move(-70);//-64//-61
-  pros::delay(100);//110//100//90//104//102
+  clawturn.move(-75);//-64//-61
+  pros::delay(102);//110//100//90//104//102
   clawturn.move(0);
 
   clawlift.move(-127); // makes claw go down parallel to the ground
   pros::delay(99);//88
   clawlift.move(0);
 
-  chassis.pid_drive_set(16_in, 127, true); //12.5 //inch ////8//14//13//12//50sp//12.5//12.8//12//12.8//13.6//15//15.5
+  chassis.pid_drive_set(14.4_in, 127, true); //12.5 //inch ////8//14//13//12//50sp//12.5//12.8//12//12.8//13.6//15//15.5//16//13.2//13.4//14.4
   chassis.pid_wait();
 
-  lift.move(-60);//110//100//80
-  pros::delay(320);//200//230//255//355//325//300
+  lift.move(-50);//110//100//80
+  pros::delay(570);//200//230//255//355//325//300
   lift.move(0);
    pros::delay(100); 
 
 
   
   matchload.set(!matchload.get());
-  pros::delay(200); 
+  pros::delay(300); 
 
   pros::delay(100);
 
@@ -734,10 +734,10 @@ lift.move(127);
 
   pros::delay(100);
 //not here before bottom two commands
-  chassis.pid_turn_relative_set(-28, 50); //33 degrees
+  chassis.pid_turn_relative_set(-26, 50); //33 degrees//-28
   chassis.pid_wait(); 
 
-  chassis.pid_drive_set(9.3_in, 80, true);//50//10in//9in
+  chassis.pid_drive_set(9.6_in, 80, true);//50//10in//9in//9.3
   chassis.pid_wait();
 
   pros::delay(100);
@@ -755,7 +755,7 @@ lift.move(127);
 
   pros::delay(200);
 
-  chassis.pid_turn_relative_set(-30, 70); // turn to face standing pin //27 degrees, //34//-37//-32
+  chassis.pid_turn_relative_set(-34, 70); // turn to face standing pin //27 degrees, //34//-37//-32//-30//28//-31
   chassis.pid_wait();
 
   pros::delay(100);
@@ -767,13 +767,19 @@ lift.move(127);
   
   /*chassis.pid_drive_set(14_in, 70, true);
   chassis.pid_wait();*/
+  lift.move(-50);//110//100//80
+  pros::delay(200);//200//230//255//355//325//300
+  lift.move(0);
+   pros::delay(100); 
 
-  chassis.pid_drive_set(3_in, 127, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp
+   
+
+  chassis.pid_drive_set(4.1_in, 127, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//3.3//3.5//3.9//4.1
   chassis.pid_wait_until(11_in);
   chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
   chassis.pid_wait();
 
-  chassis.pid_drive_set(4.4_in, 100, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//50//4.1//4.3//4.6
+  chassis.pid_drive_set(4.5_in, 100, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//50//4.1//4.3//4.6//4.4//4.5
   chassis.pid_wait_until(11_in);
   chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
   chassis.pid_wait();
@@ -783,7 +789,7 @@ lift.move(127);
   pros::delay(100);
 
   clawlift.move(70); 
-  pros::delay(120);
+  pros::delay(220);
   clawlift.move(0);
 
   pros::delay(200);
@@ -798,10 +804,10 @@ lift.move(127);
 
   //pros::delay(100);
 
-  chassis.pid_turn_relative_set(-130, 70); //turn to score//-130//-125//-132//-138//130//-135
+  chassis.pid_turn_relative_set(-130, 70); //turn to score//-130//-125//-132//-138//130//-135//-148
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(4.8_in, 70, true); //drive forward a bit to score//5//4.6 //5.4//5//3//3.8
+  chassis.pid_drive_set(4.2_in, 70, true); //drive forward a bit to score//5//4.6 //5.4//5//3//3.8//4.8
   chassis.pid_wait();
   
   lift.move(-20);//-60//-40
@@ -812,32 +818,100 @@ lift.move(127);
   //clawlift.move(0);
 
   matchload.set(!matchload.get());
-  pros::delay(100);
+  pros::delay(500);
 
-  chassis.pid_drive_set(-21.8_in, 70, true); //drive back from goal//-18//-20//-20.5
+  chassis.pid_drive_set(-19_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_wait();
+
+  lift.move(-60);//-60//-40
+  pros::delay(700);//600//650//700
+  lift.move(0);
+  chassis.pid_turn_set(135_deg, 127);
+  chassis.pid_wait_quick_chain();
+   
+clawlift.move(127); // makes claw go down parallel to the ground
+  pros::delay(50);//88
+  clawlift.move(0);
+
+
+  chassis.pid_drive_set(30_in, 100, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_wait();
+   chassis.pid_drive_set(4_in, 50, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_wait();
+ matchload.set(!matchload.get());
+  pros::delay(500);
+  lift.move(127);//-60//-40
+  pros::delay(1040);//600//650//700
+  lift.move(0);
+
+  chassis.pid_drive_set(-26_in, 90, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5//27
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  clawlift.move(127); // makes claw go down parallel to the ground
+  pros::delay(140);//88
+  clawlift.move(0);
+
+  chassis.pid_drive_set(10.5_in, 90, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5//10
   chassis.pid_wait();
 
   lift.move(-20);//-60//-40
-  pros::delay(700);//600//650
+  pros::delay(2000);//600//650//800
   lift.move(0);
-
   matchload.set(!matchload.get());
-  pros::delay(100);
+  pros::delay(500);
 
-  chassis.pid_turn_set(30_deg, 127);
-  chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(-8_in, 127, true); //drive back from matchload//
+  chassis.pid_drive_set(-19_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
   chassis.pid_wait();
-  chassis.pid_turn_set(0_deg, 127);//parallel to the wall
+
+
+ 
+ clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+
+  chassis.pid_turn_set(55_deg, 127);
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(-8_in, 127, true); //drive back from matchload////8in2//-7
+  chassis.pid_wait();
+  chassis.pid_turn_set(0_deg, 127);//parallel to the wall//0_deg
   chassis.pid_wait_quick_chain();
   
 
-  chassis.pid_drive_set(16_in, 127, true); //drive forward to matchload//
+  chassis.pid_drive_set(13_in, 127, true); //drive forward to matchload//
   chassis.pid_wait();
-  clawlift.move(127); // makes claw go down parallel to the ground
-  pros::delay(60);
-  clawlift.move(0);
+  
   chassis.pid_drive_set(-12_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+  matchload.set(!matchload.get());
+  pros::delay(500);
+  
+  lift.move(-270);//-60//-40
+  pros::delay(100);//600//650
+  lift.move(0);
+   clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+  chassis.pid_drive_set(16_in, 100, true); //drive forward to matchload//
+  chassis.pid_wait();
+  chassis.pid_drive_set(-12_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+  chassis.pid_drive_set(12_in, 127, true); //drive forward to matchload//
+  chassis.pid_wait();
+   chassis.pid_drive_set(5_in, 127, true); //drive forward to matchload//
+  chassis.pid_wait();
+  lift.move(270);//-60//-40
+  pros::delay(100);//600//650
+  lift.move(0);
+  chassis.pid_drive_set(-2_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+
+  lift.move(80);//-60//-40
+  pros::delay(100);//600//650
+  lift.move(0);
+   chassis.pid_drive_set(-9.5_in, 127, true);//drive back from matchload//
   chassis.pid_wait();
 
   
@@ -847,8 +921,166 @@ lift.move(127);
   chassis.pid_wait_quick_chain();
 
   lift.move(80);//-60//-40
-  pros::delay(1000);//600//650
+  pros::delay(1200);//600//650
   lift.move(0);
+
+   chassis.pid_drive_set(23_in, 127, true); //drive back from matchload//8/16
+  chassis.pid_wait();
+
+  lift.move(-80);//-60//-40
+  pros::delay(200);//600//650
+  lift.move(0);
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+  //origin 
+  
+  chassis.pid_drive_set(-19_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_wait();
+
+  lift.move(-80);//-60//-40
+  pros::delay(2000);//600//650//800
+  lift.move(0);
+
+ 
+ clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+
+  chassis.pid_turn_set(55_deg, 127);
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(-7_in, 127, true); //drive back from matchload////8in2
+  chassis.pid_wait();
+  chassis.pid_turn_set(-6_deg, 127);//parallel to the wall//0_deg
+  chassis.pid_wait_quick_chain();
+  
+
+  chassis.pid_drive_set(13_in, 127, true); //drive forward to matchload//
+  chassis.pid_wait();
+  
+  chassis.pid_drive_set(-12_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+  matchload.set(!matchload.get());
+  pros::delay(100);
+  
+  lift.move(-270);//-60//-40
+  pros::delay(100);//600//650
+  lift.move(0);
+   clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+   chassis.pid_turn_set(4_deg, 127);//parallel to the wall//0_deg
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(16_in, 127, true); //drive forward to matchload//
+  chassis.pid_wait();
+  chassis.pid_drive_set(-2_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+
+  lift.move(80);//-60//-40
+  pros::delay(200);//600//650
+  lift.move(0);
+   chassis.pid_drive_set(-9.5_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+
+  
+
+
+  chassis.pid_turn_set(90_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  lift.move(80);//-60//-40
+  pros::delay(1500);//600//650
+  lift.move(0);
+
+   chassis.pid_drive_set(23_in, 127, true); //drive back from matchload//8/16
+  chassis.pid_wait();
+
+  lift.move(-80);//-60//-40
+  pros::delay(300);//600//650
+  lift.move(0);
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+  //next
+chassis.pid_drive_set(-19_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_wait();
+
+  lift.move(-80);//-60//-40
+  pros::delay(2000);//600//650//800
+  lift.move(0);
+
+ 
+ clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+
+  chassis.pid_turn_set(55_deg, 127);
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(-7_in, 127, true); //drive back from matchload////8in2
+  chassis.pid_wait();
+  chassis.pid_turn_set(-6_deg, 127);//parallel to the wall//0_deg
+  chassis.pid_wait_quick_chain();
+  
+
+  chassis.pid_drive_set(13_in, 127, true); //drive forward to matchload//
+  chassis.pid_wait();
+  
+  chassis.pid_drive_set(-12_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+  matchload.set(!matchload.get());
+  pros::delay(500);
+  
+  lift.move(-270);//-60//-40
+  pros::delay(100);//600//650
+  lift.move(0);
+   clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+   chassis.pid_turn_set(0_deg, 127);//parallel to the wall//0_deg
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(16_in, 127, true); //drive forward to matchload//
+  chassis.pid_wait();
+  chassis.pid_drive_set(-2_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+
+  lift.move(80);//-60//-40
+  pros::delay(200);//600//650
+  lift.move(0);
+   chassis.pid_drive_set(-9.5_in, 127, true);//drive back from matchload//
+  chassis.pid_wait();
+
+  
+
+
+  chassis.pid_turn_set(90_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  lift.move(80);//-60//-40
+  pros::delay(1500);//600//650
+  lift.move(0);
+
+   chassis.pid_drive_set(12_in, 127, true); //drive back from matchload//8/16
+  chassis.pid_wait();
+
+  lift.move(-80);//-60//-40
+  pros::delay(200);//600//650
+  lift.move(0);
+  matchload.set(!matchload.get());
+  pros::delay(500);
+  
+  chassis.pid_drive_set(-7_in, 127, true); //drive back from matchload////8in2
+  chassis.pid_wait();
+  chassis.pid_turn_set(78_deg, 127);
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(20_in, 127, true); //drive back from matchload////8in2
+  chassis.pid_wait();
+
+
+
+
+//end of skills
+
+
 
   /*chassis.pid_drive_set(15_in, 127, true); //drive back from goal//
   chassis.pid_wait();

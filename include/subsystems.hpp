@@ -17,7 +17,8 @@ inline ez::Piston matchload('C', false);
 inline ez::Piston doi('A', false);
 inline ez::Piston doinker('B', false);
 inline pros::MotorGroup lift({-13, 17});
-inline pros::MotorGroup leftswerve({-10, -20});
+
+
 
 
 
