@@ -688,7 +688,7 @@ lift.move(127);
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(850);
 
-  chassis.pid_drive_set(-8_in, 127, true); //7.6, //7.8, //8.5, //9 //10 //50//10.5//70//-10//50sp//-10.5//8//6//=6.5//-7.3//-7.6//-8//7.6
+  chassis.pid_drive_set(-7.3_in, 127, true); //7.6, //7.8, //8.5, //9 //10 //50//10.5//70//-10//50sp//-10.5//8//6//=6.5//-7.3//-7.6//-8//7.6
   chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(-90, 127); //50sp
@@ -701,7 +701,7 @@ lift.move(127);
   pros::delay(100);
 
   clawturn.move(-75);//-64//-61
-  pros::delay(102);//110//100//90//104//102
+  pros::delay(100);//110//100//90//104//102
   clawturn.move(0);
 
   clawlift.move(-127); // makes claw go down parallel to the ground
@@ -807,7 +807,7 @@ lift.move(127);
   chassis.pid_turn_relative_set(-130, 70); //turn to score//-130//-125//-132//-138//130//-135//-148
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(4.2_in, 70, true); //drive forward a bit to score//5//4.6 //5.4//5//3//3.8//4.8
+  chassis.pid_drive_set(4.2_in, 100, true); //drive forward a bit to score//5//4.6 //5.4//5//3//3.8//4.8//70
   chassis.pid_wait();
   
   lift.move(-20);//-60//-40
@@ -820,21 +820,21 @@ lift.move(127);
   matchload.set(!matchload.get());
   pros::delay(500);
 
-  chassis.pid_drive_set(-19_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_drive_set(-20_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5//19
   chassis.pid_wait();
 
   lift.move(-60);//-60//-40
-  pros::delay(700);//600//650//700
+  pros::delay(100);//600//650//700
   lift.move(0);
-  chassis.pid_turn_set(135_deg, 127);
+  chassis.pid_turn_set(137_deg, 127);//135
   chassis.pid_wait_quick_chain();
    
 clawlift.move(127); // makes claw go down parallel to the ground
-  pros::delay(50);//88
+  pros::delay(70);//88
   clawlift.move(0);
 
 
-  chassis.pid_drive_set(30_in, 100, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
+  chassis.pid_drive_set(29_in, 100, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
   chassis.pid_wait();
    chassis.pid_drive_set(4_in, 50, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5
   chassis.pid_wait();
@@ -844,7 +844,7 @@ clawlift.move(127); // makes claw go down parallel to the ground
   pros::delay(1040);//600//650//700
   lift.move(0);
 
-  chassis.pid_drive_set(-26_in, 90, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5//27
+  chassis.pid_drive_set(-25_in, 90, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5//27//26
   chassis.pid_wait();
 
   chassis.pid_turn_set(90_deg, 127);
@@ -883,7 +883,7 @@ clawlift.move(127); // makes claw go down parallel to the ground
   chassis.pid_drive_set(13_in, 127, true); //drive forward to matchload//
   chassis.pid_wait();
   
-  chassis.pid_drive_set(-12_in, 127, true);//drive back from matchload//
+  chassis.pid_drive_set(-8_in, 127, true);//drive back from matchload//
   chassis.pid_wait();
   matchload.set(!matchload.get());
   pros::delay(500);
@@ -991,6 +991,10 @@ clawlift.move(127); // makes claw go down parallel to the ground
   lift.move(80);//-60//-40
   pros::delay(1500);//600//650
   lift.move(0);
+
+  clawlift.move(70); 
+  pros::delay(500);
+  clawlift.move(0);
 
    chassis.pid_drive_set(23_in, 127, true); //drive back from matchload//8/16
   chassis.pid_wait();
