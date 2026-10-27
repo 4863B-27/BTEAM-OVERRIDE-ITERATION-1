@@ -50,7 +50,7 @@ void initialize() {
 
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
- 
+  intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   clawlift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
   clawturn.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
@@ -86,6 +86,7 @@ void initialize() {
       {"Drive\n\nDrive forward and come back", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"skills\n\nskills" ,skills},
+      
       
       /*{"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
@@ -315,7 +316,7 @@ if (power != 0) {
 } else {
     lift.brake(); // Actively locks both green motors using HOLD mode
 }*/
- if(controller2.get_digital(DIGITAL_UP)){
+ /*if(controller2.get_digital(DIGITAL_UP)){
       lift.move(127);
     }
     else if(controller2.get_digital(DIGITAL_DOWN)){
@@ -323,8 +324,17 @@ if (power != 0) {
     }
     else{
       lift.move_velocity(0);
-    }
+    }*/
 
+    if(controller.get_digital(DIGITAL_R2)){
+      intake.move(107);
+    }
+    else if(controller.get_digital(DIGITAL_R1)){
+      intake.move(-107);
+    }
+    else{
+      intake.move_velocity(0);
+    }
    
     if(controller2.get_digital(DIGITAL_R1)){
       clawturn.move(25);

@@ -378,7 +378,7 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 
-void Left_Blue() {
+/*void left_backup() {
 
 lift.move(127);
   pros::delay(600);
@@ -387,7 +387,7 @@ lift.move(127);
   pros::delay(580);
   
   lift.move(127);
-  pros::delay(600);*/
+  pros::delay(600);
   
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(850);
@@ -466,7 +466,7 @@ lift.move(127);
   /*chassis.pid_drive_set(14_in, 70, true);
   chassis.pid_wait();
 
-  pros::delay(100);*/
+  pros::delay(100);
 
   chassis.pid_drive_set(3_in, 80, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp
   chassis.pid_wait_until(11_in);
@@ -517,7 +517,7 @@ lift.move(127);
   chassis.pid_drive_set(-6.4_in, 70, true); //drive forward a bit to score//5//4.6
   chassis.pid_wait();
 
-}
+}*/
 
 void Do_Nothing() { //REMEMBER TO TAKE ALL TEST CODE OUT AND UNCOMMA CHASSIS.PID_DRIVE SET FOR AWP IF ALLIANCE SAYS SO
   //chassis.pid_drive_set(2_in, 90, true);
@@ -551,7 +551,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(870);//850
 
-  chassis.pid_drive_set(-8_in, 50, true);//-7.8//-8.1//-7.4
+  chassis.pid_drive_set(-7.6_in, 127, true);//-7.8//-8.1//-7.4//-8
   chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(90, 50); 
@@ -571,17 +571,17 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   pros::delay(99);//88
   clawlift.move(0);
 
-  chassis.pid_drive_set(12.8_in, 50, true); //12.5 //inch ////8//12//12.5
+  chassis.pid_drive_set(11.8_in, 50, true); //12.5 //inch ////8//12//12.5//12.8//12.2//
   chassis.pid_wait();
 
-  lift.move(-100);//110
-  pros::delay(255);//200//230
+  lift.move(-50);//110
+  pros::delay(555);//200//230
   lift.move(0);
 
 
   
   matchload.set(!matchload.get());
-  pros::delay(200); 
+  pros::delay(400); 
 
   pros::delay(100);
 
@@ -590,6 +590,10 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
 
   chassis.pid_turn_relative_set(-65, 50); //55//60
   chassis.pid_wait(); 
+
+  chassis.pid_swing_relative_set(ez::RIGHT_SWING, 90_deg, 110);
+
+  //left swing = left side moves forward depending on deg opposite than right moving back to the same direction
   
   chassis.pid_drive_set(5.5_in, 80, true);//50//10in//5in
   chassis.pid_wait();
@@ -617,7 +621,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
 
   pros::delay(200);
 
-  chassis.pid_turn_relative_set(27, 70); // turn to face standing pin//35degrees//28deg
+  chassis.pid_turn_relative_set(45, 70); // turn to face standing pin//35degrees//28deg
   chassis.pid_wait();
 
   pros::delay(100);
@@ -674,6 +678,259 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   chassis.pid_wait();
 
 }
+void Left_Blue(){
+  lift.move(127);
+  pros::delay(600);
+
+ /* lift.move(-100);
+  pros::delay(580);
+  
+  lift.move(127);
+  pros::delay(600);*/
+  
+  lift.move(-10); //ratio 2/5 move fist then delay
+  pros::delay(850);
+
+  chassis.pid_drive_set(-7.5_in, 127, true); //7.6, //7.8, //8.5, //9 //10 //50//10.5//70//-10//50sp//-10.5//8//6//=6.5//-7.3//-7.6//-8//7.6//8.3// 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_set(-90, 127); //50sp
+  chassis.pid_wait();
+  
+  lift.move(127);//110
+  pros::delay(180);//200//170
+  lift.move(0);
+
+  pros::delay(100);
+
+  clawturn.move(-75);//-64//-61
+  pros::delay(100);//110//100//90//104//102
+  clawturn.move(0);
+
+  clawlift.move(-127); // makes claw go down parallel to the ground
+  pros::delay(99);//88
+  clawlift.move(0);
+
+  chassis.pid_drive_set(16.5_in, 127, true); //12.5 //inch ////8//14//13//12//50sp//12.5//12.8//12//12.8//13.6//15//15.5//16//13.2//13.4//14.4//17.5
+  chassis.pid_wait();
+
+  lift.move(-50);//110//100//80
+  pros::delay(670);//200//230//255//355//325//300
+  lift.move(0);
+   pros::delay(100); 
+
+
+  
+  matchload.set(!matchload.get());
+  pros::delay(300); 
+
+  pros::delay(100);
+
+  chassis.pid_drive_set(-12.3_in, 50, true); //12 //10in//-12in
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_relative_set(65, 50); //55//60
+  chassis.pid_wait(); 
+  
+  chassis.pid_drive_set(6.5_in, 80, true);//50//10in//5in, //5.5
+  chassis.pid_wait();
+
+  pros::delay(100);
+//not here before bottom two commands
+  chassis.pid_turn_relative_set(-26, 50); //33 degrees//-28
+  chassis.pid_wait(); 
+
+  chassis.pid_drive_set(9.6_in, 80, true);//50//10in//9in//9.3
+  chassis.pid_wait();
+
+  pros::delay(100);
+
+
+ // going for yellow pin standing closet to the match load
+ // right or left side for auton is shown by facing the opposite color diagnal from the match load and right of you is right side etc
+  chassis.pid_turn_relative_set(-40, 50); //turn to drive straight between goal and wall//42 degrees//-38
+  chassis.pid_wait_quick_chain();
+
+  pros::delay(100);
+
+  chassis.pid_drive_set(20_in, 100, true);//70
+  chassis.pid_wait_quick_chain();
+
+  pros::delay(200);
+
+  chassis.pid_turn_relative_set(-34, 70); // turn to face standing pin //27 degrees, //34//-37//-32//-30//28//-31
+  chassis.pid_wait();
+
+  pros::delay(100);
+  
+  /*chassis.pid_drive_set(14_in, 70, true);
+  chassis.pid_wait();
+
+  pros::delay(100);
+  
+  /*chassis.pid_drive_set(14_in, 70, true);
+  chassis.pid_wait();*/
+  lift.move(-50);//110//100//80
+  pros::delay(200);//200//230//255//355//325//300
+  lift.move(0);
+   pros::delay(100); 
+
+   
+
+  chassis.pid_drive_set(4.1_in, 127, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//3.3//3.5//3.9//4.1
+  chassis.pid_wait_until(11_in);
+  chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(4.5_in, 100, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//50//4.1//4.3//4.6//4.4//4.5
+  chassis.pid_wait_until(11_in);
+  chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
+  chassis.pid_wait();
+
+
+  matchload.set(!matchload.get());
+  pros::delay(100);
+
+  clawlift.move(70); 
+  pros::delay(220);
+  clawlift.move(0);
+
+  pros::delay(200);
+
+  lift.move(270);
+  pros::delay(600);
+  lift.move(0);
+  //clawlift.move(0);
+  
+  //chassis.pid_drive_set(2_in, 70, true);
+  //chassis.pid_wait();
+
+  //pros::delay(100);
+
+  chassis.pid_turn_relative_set(-130, 70); //turn to score//-130//-125//-132//-138//130//-135//-148
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(4.2_in, 100, true); //drive forward a bit to score//5//4.6 //5.4//5//3//3.8//4.8//70
+  chassis.pid_wait();
+  
+  lift.move(-20);//-60//-40
+  pros::delay(740);//600//650//700
+  lift.move(0);
+  //clawlift.move(-40); //adjust once replace wiring 
+  //pros::delay(50);
+  //clawlift.move(0);
+
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+
+
+  /*chassis.pid_drive_set(-12.3_in, 110, true); //12 //10in//-12in//50
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_relative_set(65, 110); //55//60//50
+  chassis.pid_wait(); 
+  
+  chassis.pid_drive_set(6.5_in, 110, true);//50//10in//5in, //5.5//80
+  chassis.pid_wait();
+
+  pros::delay(100);
+//not here before bottom two commands
+  chassis.pid_turn_relative_set(-26, 50); //33 degrees//-28//50
+  chassis.pid_wait(); 
+
+  chassis.pid_drive_set(9.6_in, 110, true);//50//10in//9in//9.3//80
+  chassis.pid_wait();
+
+  pros::delay(100);
+
+
+ // going for yellow pin standing closet to the match load
+ // right or left side for auton is shown by facing the opposite color diagnal from the match load and right of you is right side etc
+  chassis.pid_turn_relative_set(-40, 50); //turn to drive straight between goal and wall//42 degrees//-38
+  chassis.pid_wait_quick_chain();
+
+  pros::delay(100);
+
+  chassis.pid_drive_set(20_in, 100, true);//70
+  chassis.pid_wait_quick_chain();
+
+  pros::delay(200);
+
+  chassis.pid_turn_relative_set(-33, 70); // turn to face standing pin //27 degrees, //34//-37//-32//-30//28//-31//34
+  chassis.pid_wait();
+
+  pros::delay(100);
+  
+  /*chassis.pid_drive_set(14_in, 70, true);
+  chassis.pid_wait();
+
+  pros::delay(100);
+  
+  /*chassis.pid_drive_set(14_in, 70, true);
+  chassis.pid_wait();
+  lift.move(-50);//110//100//80
+  pros::delay(100);//200//230//255//355//325//300//200
+  lift.move(0);
+   pros::delay(100); 
+
+   clawlift.move(70); 
+  pros::delay(120);
+  clawlift.move(0);
+
+
+   
+
+  chassis.pid_drive_set(4.1_in, 127, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//3.3//3.5//3.9//4.1
+  chassis.pid_wait_until(11_in);
+  chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(4.5_in, 100, true);//12in//70sp//60sp//10.1//9.2//9//8.5//8//7//6.5//5.7//40sp//6in //40sp//3in//50//4.1//4.3//4.6//4.4//4.5
+  chassis.pid_wait_until(11_in);
+  chassis.pid_speed_max_set(30);  // After driving blank inches at blank speed, the robot will go the remaining distance at DRIVE_SPEED
+  chassis.pid_wait();
+
+
+  matchload.set(!matchload.get());
+  pros::delay(100);
+
+  clawlift.move(70); 
+  pros::delay(220);
+  clawlift.move(0);
+
+  pros::delay(200);
+
+  lift.move(270);
+  pros::delay(600);
+  lift.move(0);
+  //clawlift.move(0);
+  
+  //chassis.pid_drive_set(2_in, 70, true);
+  //chassis.pid_wait();
+
+  //pros::delay(100);
+
+  chassis.pid_turn_relative_set(-130, 70); //turn to score//-130//-125//-132//-138//130//-135//-148
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(4.2_in, 100, true); //drive forward a bit to score//5//4.6 //5.4//5//3//3.8//4.8//70
+  chassis.pid_wait();
+  
+  lift.move(-20);//-60//-40
+  pros::delay(740);//600//650//700
+  lift.move(0);
+  //clawlift.move(-40); //adjust once replace wiring 
+  //pros::delay(50);
+  //clawlift.move(0);
+
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+  chassis.pid_drive_set(-10_in, 120, true); //drive back from goal//-18//-20//-20.5//21.5//22.5//24.5//19
+  chassis.pid_wait();*/
+}
+
   void skills() {
 
 lift.move(127);
