@@ -12,8 +12,8 @@ pros::Controller controller2(pros::E_CONTROLLER_PARTNER);
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-20, -10},     // Left Chassis Ports (negative port will reverse it!)
-    {2, 4},  // Right Chassis Ports (negative port will reverse it!)
+    {1, 3, 20},  //need to put middle in   // Left Chassis Ports (negative port will reverse it!)
+    {7, 8, 10},  // Right Chassis Ports (negative port will reverse it!)
 
     21,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
