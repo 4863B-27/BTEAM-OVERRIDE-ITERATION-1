@@ -539,14 +539,14 @@ void Do_Nothing() { //REMEMBER TO TAKE ALL TEST CODE OUT AND UNCOMMA CHASSIS.PID
 // positive lifts the claw up negative makes it go down
 
 void Right_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
-  lift.move(127);
+  /*lift.move(127);
   pros::delay(620);//600
 
  /* lift.move(-100);
   pros::delay(580);
   
   lift.move(127);
-  pros::delay(600);*/
+  pros::delay(600);
   
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(870);//850
@@ -629,7 +629,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   /*chassis.pid_drive_set(14_in, 70, true);
   chassis.pid_wait();
 
-  pros::delay(100);*/
+  pros::delay(100);
   lift.move(70);
   pros::delay(60);//45
   lift.move(0);
@@ -675,7 +675,7 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
   pros::delay(100);
 
   chassis.pid_drive_set(-5.4_in, 70, true); //drive forward a bit to score//5//4.6
-  chassis.pid_wait();
+  chassis.pid_wait();*/
 
 }
 void Left_Blue(){
@@ -686,7 +686,7 @@ void Left_Blue(){
   pros::delay(580);
   
   lift.move(127);
-  pros::delay(600);*/
+  pros::delay(600);
   
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(850);
@@ -769,7 +769,7 @@ void Left_Blue(){
   pros::delay(100);
   
   /*chassis.pid_drive_set(14_in, 70, true);
-  chassis.pid_wait();*/
+  chassis.pid_wait();
   lift.move(-50);//110//100//80
   pros::delay(200);//200//230//255//355//325//300
   lift.move(0);
@@ -931,16 +931,85 @@ void Left_Blue(){
   chassis.pid_wait();*/
 }
 
-  void skills() {
+  void skills(){
 
-lift.move(127);
+  intake.move(40);
+  pros::delay(50);
+  intake.move(0)
+/*chassis.pid_drive_set(7.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+chassis.pid_turn_set(180_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(10.3_in, 120, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(-7.3_in, 100, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(11.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(-6.5_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_relative_set(-130, 70);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(8_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+  chassis.pid_drive_set(-6.5_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_relative_set(-30, 70);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(11.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+ chassis.pid_drive_set(-6.5_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_relative_set(-130, 70);
+  chassis.pid_wait_quick_chain();
+
+  lift.move(20);//-60//-40
+  pros::delay(740);//600//650//700
+  lift.move(0);
+
+  chassis.pid_drive_set(-6.5_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+   lift.move(-20);//-60//-40
+  pros::delay(740);//600//650//700
+  lift.move(0);
+
+  matchload.set(!matchload.get());
+  pros::delay(500);
+
+  end of new skills */
+
+
+
+
+
+
+/*lift.move(127);
   pros::delay(600);
 
  /* lift.move(-100);
   pros::delay(580);
   
   lift.move(127);
-  pros::delay(600);*/
+  pros::delay(600);
   
   lift.move(-10); //ratio 2/5 move fist then delay
   pros::delay(850);
@@ -1023,7 +1092,7 @@ lift.move(127);
   pros::delay(100);
   
   /*chassis.pid_drive_set(14_in, 70, true);
-  chassis.pid_wait();*/
+  chassis.pid_wait();
   lift.move(-50);//110//100//80
   pros::delay(200);//200//230//255//355//325//300
   lift.move(0);
@@ -1433,5 +1502,5 @@ chassis.pid_turn_relative_set(90, 70); //turn to score
   chassis.pid_drive_set(-4_in, 110);//not measured dont change without lucas diaz 
   chassis.pid_wait();
   lift.move(-45);
-  //set_lift_position(-45,100);*/
+  //set_lift_position(-45,100);*/;
   }

@@ -14,9 +14,9 @@ extern Drive chassis;
 /*inline pros::Motor clawturn(15, pros::v5::MotorGears::green);
 inline pros::Motor clawlift(14, pros::v5::MotorGears::green);*/
 inline ez::Piston matchload('C', false);
-inline ez::Piston doi('A', false);
-inline ez::Piston doinker('B', false);
-inline pros::MotorGroup lift({3, 2}); //leftor right first? i put right port first
+inline ez::Piston up('A', false);
+//inline ez::Piston doinker('B', false);
+inline pros::MotorGroup lift({-3, -4}); //leftor right first? i put right port first
 inline pros::Motor intake(9, pros::v5::MotorGears::blue);
 
 

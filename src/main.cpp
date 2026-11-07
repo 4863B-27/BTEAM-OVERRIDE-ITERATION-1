@@ -12,10 +12,10 @@ pros::Controller controller2(pros::E_CONTROLLER_PARTNER);
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {1, 3, 20},  //need to put middle in   // Left Chassis Ports (negative port will reverse it!)
-    {7, 8, 10},  // Right Chassis Ports (negative port will reverse it!)
+    {1, -6, -20},  //need to put middle in   // Left Chassis Ports (negative port will reverse it!)
+    {-7, 8, 10},  // Right Chassis Ports (negative port will reverse it!)
 
-    21,      // IMU Port
+    12,      // IMU Port (21)(11)
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     360);   // Wheel RPM = cartridge * (motor gear / wheel gear) 
 
@@ -52,8 +52,8 @@ void initialize() {
 
   intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
   lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD); 
-  clawlift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  clawturn.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  /*clawlift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+  clawturn.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);*/
   
 
   // Look at your horizontal tracking wheel and decide if it's in front of the midline of your robot or behind it
@@ -316,27 +316,27 @@ if (power != 0) {
 } else {
     lift.brake(); // Actively locks both green motors using HOLD mode
 }*/
- /*if(controller2.get_digital(DIGITAL_UP)){
+ if(controller2.get_digital(DIGITAL_L1)){
       lift.move(127);
     }
-    else if(controller2.get_digital(DIGITAL_DOWN)){
-      lift.move(-80);
+    else if(controller2.get_digital(DIGITAL_L2)){
+      lift.move(-90);
     }
     else{
       lift.move_velocity(0);
-    }*/
+    }
 
     if(controller.get_digital(DIGITAL_R2)){
-      intake.move(107);
+      intake.move(127);
     }
     else if(controller.get_digital(DIGITAL_R1)){
-      intake.move(-107);
+      intake.move(-127);
     }
     else{
       intake.move_velocity(0);
     }
    
-    if(controller2.get_digital(DIGITAL_R1)){
+    /*if(controller2.get_digital(DIGITAL_R1)){
       clawturn.move(25);
     }
     else if(controller2.get_digital(DIGITAL_R2)){
@@ -358,15 +358,14 @@ if (power != 0) {
    
     if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) {
   doinker.set(!doinker.get());
-} 
+} */
 
- if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
-  doi.set(!doi.get());
-} 
-
-if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+ if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_B)) { //CHANGE TO LETTER BUTTON
+  up.set(!up.get());
+ }
+  if (controller2.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)) {
   matchload.set(!matchload.get());
-} 
+  }
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
