@@ -79,8 +79,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"skills\n\nskills" ,skills},
+      
       {"LeftB\n\nleft auton", Left_Blue},
+      {"skills\n\nskills" ,skills},
       {"RightB\n\nright auton", Right_Blue}, 
       {"Do Nothing\n\nDo nothing", Do_Nothing},
       {"Drive\n\nDrive forward and come back", drive_example},
@@ -317,7 +318,7 @@ if (power != 0) {
     lift.brake(); // Actively locks both green motors using HOLD mode
 }*/
  if(controller2.get_digital(DIGITAL_L1)){
-      lift.move(127);
+      lift.move(95);
     }
     else if(controller2.get_digital(DIGITAL_L2)){
       lift.move(-90);

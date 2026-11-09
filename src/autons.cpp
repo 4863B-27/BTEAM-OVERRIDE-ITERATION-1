@@ -539,9 +539,64 @@ void Do_Nothing() { //REMEMBER TO TAKE ALL TEST CODE OUT AND UNCOMMA CHASSIS.PID
 // positive lifts the claw up negative makes it go down
 
 void Right_Blue() {//for some reason id isn't calling back prolly internet i know it sounds stuipid but id wasn't rejected at school 
-  /*lift.move(127);
-  pros::delay(620);//600
+  
+intake.move(-127);
+  pros::delay(1000);
+  intake.move(0);
 
+chassis.pid_drive_set(7.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+chassis.pid_turn_set(180_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(4.3_in, 120, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(300);//-60//-40
+  pros::delay(650);//600//650//700
+  lift.move(0);
+
+  chassis.pid_drive_set(9.3_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(-7.3_in, 100, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_set(180_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(15.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(-4_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(-80);//-60//-40
+  pros::delay(160);//600//650//700
+  lift.move(0);
+
+  up.set(!up.get());
+  pros::delay(500);
+
+  chassis.pid_drive_set(-6.6_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+
+  chassis.pid_turn_set(-90_deg, 50);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(15_in, 80, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(-60);//-60//-40
+  pros::delay(1000);//600//650//700
+  lift.move(0);
+
+   matchload.set(!matchload.get());
+  pros::delay(500);
+  chassis.pid_drive_set(-2_in, 70, true); 
+  chassis.pid_wait_quick_chain();
  /* lift.move(-100);
   pros::delay(580);
   
@@ -679,9 +734,63 @@ void Right_Blue() {//for some reason id isn't calling back prolly internet i kno
 
 }
 void Left_Blue(){
-  lift.move(127);
-  pros::delay(600);
+ intake.move(-127);
+  pros::delay(900);
+  intake.move(0);
 
+chassis.pid_drive_set(7.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+chassis.pid_turn_set(180_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(4.3_in, 120, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(300);//-60//-40
+  pros::delay(650);//600//650//700
+  lift.move(0);
+
+  chassis.pid_drive_set(9.3_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(-7.3_in, 80, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_turn_set(180_deg, 127);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(15.3_in, 127, true); 
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(-4_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(-80);//-60//-40
+  pros::delay(160);//600//650//700
+  lift.move(0);
+
+  up.set(!up.get());
+  pros::delay(500);
+
+  chassis.pid_drive_set(-6.6_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+
+  chassis.pid_turn_set(90_deg, 50);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(15_in, 80, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(-60);//-60//-40
+  pros::delay(1000);//600//650//700
+  lift.move(0);
+
+   matchload.set(!matchload.get());
+  pros::delay(500);
+  chassis.pid_drive_set(-2_in, 70, true); 
+  chassis.pid_wait_quick_chain();
  /* lift.move(-100);
   pros::delay(580);
   
@@ -933,27 +1042,71 @@ void Left_Blue(){
 
   void skills(){
 
-  intake.move(40);
-  pros::delay(50);
-  intake.move(0)
-/*chassis.pid_drive_set(7.3_in, 127, true); 
+  intake.move(-127);
+  pros::delay(1000);
+  intake.move(0);
+
+chassis.pid_drive_set(7.3_in, 127, true); 
   chassis.pid_wait_quick_chain();
 
 chassis.pid_turn_set(180_deg, 127);
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(10.3_in, 120, true); 
+  chassis.pid_drive_set(4.3_in, 120, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(300);//-60//-40
+  pros::delay(650);//600//650//700
+  lift.move(0);
+
+  chassis.pid_drive_set(9.3_in, 70, true); 
   chassis.pid_wait_quick_chain();
 
   chassis.pid_drive_set(-7.3_in, 100, true); 
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(11.3_in, 127, true); 
+  chassis.pid_turn_set(180_deg, 127);
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_drive_set(-6.5_in, 127, true); 
+  chassis.pid_drive_set(15.3_in, 127, true); 
   chassis.pid_wait_quick_chain();
 
+  chassis.pid_drive_set(-4_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(-80);//-60//-40
+  pros::delay(160);//600//650//700
+  lift.move(0);
+
+  up.set(!up.get());
+  pros::delay(500);
+
+  chassis.pid_drive_set(-8.5_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+
+  chassis.pid_turn_set(90_deg, 50);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(15_in, 80, true); 
+  chassis.pid_wait_quick_chain();
+
+  lift.move(-60);//-60//-40
+  pros::delay(1000);//600//650//700
+  lift.move(0);
+
+   matchload.set(!matchload.get());
+  pros::delay(500);
+  chassis.pid_drive_set(-8_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+  chassis.pid_turn_set(0_deg, 50);
+  chassis.pid_wait_quick_chain();
+
+  chassis.pid_drive_set(17_in, 70, true); 
+  chassis.pid_wait_quick_chain();
+
+
+/*
   chassis.pid_turn_relative_set(-130, 70);
   chassis.pid_wait_quick_chain();
 
@@ -1502,5 +1655,5 @@ chassis.pid_turn_relative_set(90, 70); //turn to score
   chassis.pid_drive_set(-4_in, 110);//not measured dont change without lucas diaz 
   chassis.pid_wait();
   lift.move(-45);
-  //set_lift_position(-45,100);*/;
+  //set_lift_position(-45,100);*/
   }
